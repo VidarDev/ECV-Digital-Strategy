@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <Cursor />
         <Header />
-        <main className="pt-16">
+        <main className="pt-24">
           {children}
         </main>
       </body>
