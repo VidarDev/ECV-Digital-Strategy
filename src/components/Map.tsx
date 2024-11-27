@@ -1,6 +1,8 @@
 'use client';
-import React, { useEffect, useRef } from "react";
-import mapboxgl from "mapbox-gl";
+import React, { useEffect, useRef } from 'react';
+import mapboxgl from 'mapbox-gl';
+
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Types pour les lockers
 type Locker = {
@@ -15,18 +17,32 @@ type MapProps = {
 };
 
 const Map: React.FC<MapProps> = ({ lockers }) => {
-  const mapContainer = useRef<HTMLDivElement | null>(null); // Référence pour le conteneur de la carte
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<mapboxgl.Map | null>(null);
 
   useEffect(() => {
-    if (mapContainer.current) {
+    if (mapContainerRef.current) {
       // Initialiser Mapbox avec la clé API
       mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
-      const map = new mapboxgl.Map({
-        container: mapContainer.current, // Conteneur de la carte
-        style: "mapbox://styles/mapbox/dark-v10", // Style de la carte
+
+      // Initialiser la carte
+      mapRef.current = new mapboxgl.Map({
+        container: mapContainerRef.current,
+        style: 'mapbox://styles/mapbox/dark-v10', // Style de la carte
         center: [2.3522, 48.8566], // Position initiale de la carte (ici Paris)
-        zoom: 12, // Niveau de zoom initial
+        zoom: 1, // Zoom initial plus adapté
       });
+
+      // Ajouter le contrôle de géolocalisation
+      mapRef.current.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true,
+          },
+          trackUserLocation: true, // Suivre la position de l'utilisateur
+          showUserHeading: true, // Afficher la direction de l'utilisateur
+        })
+      );
 
       // Ajouter les marqueurs pour chaque locker
       lockers.forEach((locker) => {
@@ -39,20 +55,20 @@ const Map: React.FC<MapProps> = ({ lockers }) => {
               <p>Longitude: ${locker.longitude}</p>
             `)
           ) // Pop-up du marqueur avec nom et coordonnées
-          .addTo(map);
+          .addTo(mapRef.current);
       });
 
       // Cleanup de la carte lorsqu'on quitte le composant
       return () => {
-        map.remove();
+        mapRef.current?.remove();
       };
     }
-  }, [lockers]);
+  }, [lockers]); // Dépendance sur les lockers pour recharger la carte si nécessaire
 
   return (
     <div
-      ref={mapContainer}
-      className="w-full h-full rounded-lg border border-gray-200"
+      ref={mapContainerRef}
+      style={{ height: '100%', width: '100%' }} // Assurer que la carte occupe tout l'espace disponible
     ></div>
   );
 };
