@@ -22,8 +22,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({ lockers }) => {
             Si grisé, c'est qu'il n'y a pas encore de Locker à proximité
           </p>
         </div>
-        <div className="flex items-center justify-center bg-blue-600 p-2 rounded-full text-white">
-          <Search className="w-6 h-6" />
+        <div className="flex items-center justify-center bg-black p-2 rounded-full text-white">
+        <Search className="w-6 h-6" />
         </div>
       </div>
 
