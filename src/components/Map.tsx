@@ -14,6 +14,7 @@ const Map: React.FC = () => {
 
   // State pour afficher ou non la barre latérale
   const [info, setInfo] = useState<{ name: string, adresse: string, type: string } | null>(null);
+  const [showAllPoints, setShowAllPoints] = useState(false); // State pour afficher tous les points relais
 
   useEffect(() => {
     if (mapContainerRef.current) {
@@ -137,6 +138,10 @@ const Map: React.FC = () => {
     }
   }, []); // Vide pour ne charger qu'une seule fois lors du montage
 
+  // Fonction pour afficher toutes les cartes des points relais
+  const handleShowAllPoints = () => {
+    setShowAllPoints(true);
+  };
 
   return (
     <div style={{ display: 'flex', height: '100%' }}>
@@ -180,6 +185,41 @@ const Map: React.FC = () => {
           </Card>
         ) : (
           <p>Cliquez sur un point pour voir les informations.</p>
+        )}
+
+        {/* Bouton pour afficher tous les points relais */}
+        <Button 
+          onClick={handleShowAllPoints} 
+          style={{ marginTop: '10px', width: '100%' }}
+        >
+          Afficher tous les points relais les plus proches
+        </Button>
+
+        {/* Affichage de toutes les cartes des points relais */}
+        {showAllPoints && (
+          <div 
+            style={{
+              marginTop: '20px',
+              height: '450px', // Hauteur fixe de la section avec scroll
+              overflowY: 'auto', // Activer le défilement vertical
+            }}
+          >
+            {geojson.features.map((feature, index) => (
+              <Card key={index} style={{ marginBottom: '10px' }}>
+                <CardHeader>
+                  <CardTitle>{feature.properties.name}</CardTitle>
+                  <CardDescription>{feature.properties.type}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p><strong>Adresse:</strong> {feature.properties.adresse}</p>
+                  {/* Bouton "Valider ce point" sous chaque carte */}
+                  <Button style={{ marginTop: '10px' }} onClick={() => alert(`Point validé: ${feature.properties.name}`)}>
+                    Valider ce point
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         )}
       </div>
     </div>
