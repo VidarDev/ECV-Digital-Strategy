@@ -65,7 +65,7 @@ export default function QuestionForm({ onComplete }: QuestionFormProps) {
       </AnimatePresence>
 
       {/* Answers Grid */}
-      <div className="grid grid-cols-2 gap-4 w-full">
+      <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 w-full">
         {currentQuestion.answers.map((answer) => (
           <Card
             key={answer.id}

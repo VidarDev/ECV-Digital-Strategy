@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Cursor from "@/components/FollowCursor";
 import Header from "@/components/Header";
+import Chatbot from "@/components/Chatbot";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,12 @@ export default function RootLayout({
         <main className="pt-24">
           {children}
         </main>
+        <Chatbot 
+        customResponses={{
+    "bonjour": "Bonjour ! Comment puis-je vous aider ?",
+    "merci": "Je vous en prie !",
+    // Ajoutez d'autres réponses personnalisées ici
+  }} />
       </body>
     </html>
   );

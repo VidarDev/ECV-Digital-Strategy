@@ -37,8 +37,9 @@ export default function ProfileResult() {
               <Image
                 src={profile.image}
                 alt={profile.title}
-                fill
-                className="object-cover"
+                width={200}
+                height={200}
+                className="object-cover aspect-square h-full w-auto mx-auto"
               />
             </div>
           )}
