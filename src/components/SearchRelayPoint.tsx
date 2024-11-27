@@ -22,7 +22,6 @@ const SearchRelayPoint: React.FC = () => {
       <div className="flex flex-wrap justify-center gap-4">
         <Input type="text" placeholder="Code postal" className="w-40" />
         <Input type="text" placeholder="Ville" className="w-40" />
-        <Input type="text" placeholder="Pays" className="w-40" />
         <Button> Trouver </Button>
         <Button variant="outline"> Localiser </Button>
       </div>

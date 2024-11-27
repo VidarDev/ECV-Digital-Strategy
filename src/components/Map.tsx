@@ -30,7 +30,7 @@ const Map: React.FC<MapProps> = ({ lockers }) => {
         container: mapContainerRef.current,
         style: 'mapbox://styles/mapbox/dark-v10', // Style de la carte
         center: [2.3522, 48.8566], // Position initiale de la carte (ici Paris)
-        zoom: 1, // Zoom initial plus adapté
+        zoom: 10, // Zoom initial plus adapté
       });
 
       // Ajouter le contrôle de géolocalisation
@@ -55,7 +55,6 @@ const Map: React.FC<MapProps> = ({ lockers }) => {
               <p>Longitude: ${locker.longitude}</p>
             `)
           ) // Pop-up du marqueur avec nom et coordonnées
-          .addTo(mapRef.current);
       });
 
       // Cleanup de la carte lorsqu'on quitte le composant
