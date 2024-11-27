@@ -100,6 +100,65 @@ const HomePage: React.FC = () => {
 
           </section>
 
+          {/* Abonnements Section */}
+          <section className="py-16 px-5 bg-white">
+              <h2 className="text-3xl font-bold text-center mb-10">Choisissez votre abonnement</h2>
+              <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+                  {/* Carte Novice */}
+                  <Card className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm">
+                      <CardHeader className="mb-4">
+                          <h3 className="text-2xl font-bold text-green-600">Novice</h3>
+                      </CardHeader>
+                      <CardContent>
+                          <ul className="space-y-2">
+                              <li>✔ 2 paires par mois</li>
+                              <li>✔ 10% de réduction sur les paires</li>
+                              <li>✔ Assistance standard</li>
+                          </ul>
+                          <Button className="mt-6 bg-green-600 hover:bg-green-700">
+                              Choisir
+                          </Button>
+                      </CardContent>
+                  </Card>
+
+                  {/* Carte Intermédiaire */}
+                  <Card className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm">
+                      <CardHeader className="mb-4">
+                          <h3 className="text-2xl font-bold text-blue-600">Intermédiaire</h3>
+                      </CardHeader>
+                      <CardContent>
+                          <ul className="space-y-2">
+                              <li>✔ 5 paires par mois</li>
+                              <li>✔ 20% de réduction sur les paires</li>
+                              <li>✔ Accès prioritaire aux nouveautés</li>
+                          </ul>
+                          <Button className="mt-6 bg-blue-600 hover:bg-blue-700">
+                              Choisir
+                          </Button>
+                      </CardContent>
+                  </Card>
+
+                  {/* Carte Pro */}
+                  <Card className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm">
+                      <CardHeader className="mb-4">
+                          <h3 className="text-2xl font-bold text-purple-600">Pro</h3>
+                      </CardHeader>
+                      <CardContent>
+                          <ul className="space-y-2">
+                              <li>✔ Paires illimitées</li>
+                              <li>✔ 30% de réduction sur les paires</li>
+                              <li>✔ Personnalisation avancée</li>
+                              <li>✔ Assistance premium 24/7</li>
+                          </ul>
+                          <Button className="mt-6 bg-purple-600 hover:bg-purple-700">
+                              Choisir
+                          </Button>
+                      </CardContent>
+                  </Card>
+              </div>
+          </section>
+
+
           {/* Carousel Section */}
           <section className="py-16 bg-gray-50 overflow-hidden">
               <h2 className="text-3xl font-bold text-center mb-10">Découvrez nos modèles</h2>
