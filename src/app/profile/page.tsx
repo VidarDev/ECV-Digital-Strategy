@@ -15,14 +15,14 @@ export default function ProfileSettingsPage() {
 <section>
         <h2 className="text-3xl font-bold tracking-tight mt-12 mx-auto w-full text-center">Votre impact environnemental</h2>
         <p className="text-muted-foreground mx-auto w-full text-center">
-          Découvrez votre contribution à la réduction de l'empreinte carbone grâce à la location.
+          Découvrez votre contribution à la réduction de l&apos;empreinte carbone grâce à la location.
         </p>
         <div className="mt-6 max-w-2xl mx-auto">
           <Card>
             <CardHeader>
               <CardTitle>Économie Carbone</CardTitle>
               <CardDescription>
-                Par rapport à l'achat traditionnel
+                Par rapport à l&apos;achat traditionnel
               </CardDescription>
             </CardHeader>
             <CardContent className="flex items-center gap-6">
@@ -38,7 +38,7 @@ export default function ProfileSettingsPage() {
               <div className="flex-1">
                 <div className="text-5xl font-bold text-green-600">-45%</div>
                 <p className="text-sm text-muted-foreground mt-2">
-                  d'émissions de CO2 en moyenne par rapport à l'achat de chaussures neuves
+                  d&apos;émissions de CO2 en moyenne par rapport à l&apos;achat de chaussures neuves
                 </p>
               </div>
             </CardContent>
