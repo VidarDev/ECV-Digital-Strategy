@@ -3,19 +3,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/utils/cn"
-<<<<<<< Updated upstream
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import React from "react"
 import { Input } from "./ui/input"
-=======
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Catalogue", href: "/catalogue" },
-  { name: "Settings", href: "/settings" },
-  { name: "Profile", href: "/settings/profile" },
-]
->>>>>>> Stashed changes
 
 export default function Header() {
   return (
@@ -80,6 +70,13 @@ export default function Header() {
           <Link href="/profile" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Profil
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/catalogue" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Catalogue
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
