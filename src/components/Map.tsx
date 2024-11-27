@@ -23,7 +23,7 @@ const Map: React.FC<MapProps> = ({ lockers }) => {
       mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
       const map = new mapboxgl.Map({
         container: mapContainer.current, // Conteneur de la carte
-        style: "mapbox://styles/mapbox/streets-v11", // Style de la carte
+        style: "mapbox://styles/mapbox/dark-v10", // Style de la carte
         center: [2.3522, 48.8566], // Position initiale de la carte (ici Paris)
         zoom: 12, // Niveau de zoom initial
       });
