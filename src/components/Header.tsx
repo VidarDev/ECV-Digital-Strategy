@@ -2,18 +2,12 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { cn } from "@/utils/cn"
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Settings", href: "/settings" },
-  { name: "Profile", href: "/settings/profile" },
-]
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+import React from "react"
+import { Input } from "./ui/input"
 
 export default function Header() {
-  const pathname = usePathname()
-
   return (
     <header className="fixed top-0 left-0 right-0 z-20 border-b border-border/40 bg-white">
       <div className="w-full bg-gray-100 min-h-9 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -43,24 +37,89 @@ export default function Header() {
               Digital Strategy
             </Link>
           </div>
-          <div className="ml-10 space-x-8">
-            {navigation.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={cn(
-                  "inline-flex items-center px-1 pt-1 text-sm font-medium",
-                  pathname === link.href
-                    ? "text-blue-600"
-                    : "text-gray-500 hover:text-gray-700"
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+          <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Produits</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="relative flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/"
+                  >
+                    <Image
+                      src="/assets/images/shoe1.webp"
+                      alt="Your Company"
+                      className="absolute top-0 left-0 right-0 h-full w-full object-cover"
+                      width={200} height={200} />
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <ListItem href="/settings" title="Chaussures">
+                Re-usable components built using Radix UI and Tailwind CSS.
+              </ListItem>
+              <ListItem href="/settings" title="Chaussures 2">
+                How to install dependencies and structure your app.
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/profile" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Profil
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+    <div className="flex items-center space-x-4">
+      <Input
+        type="search"
+        placeholder="Search..."
+        className="w-full max-w-sm rounded-full"
+      />
+      <Image
+        src="/images/default.svg"
+        alt="Your Company"
+        className="h-8 w-auto"
+        width={24} height={24} />
+      <Image
+        src="/images/default.svg"
+        alt="Your Company"
+        className="h-8 w-auto"
+        width={24} height={24} />
+    </div>
         </div>
       </nav>
     </header>
   )
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
