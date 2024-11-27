@@ -9,6 +9,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Settings", href: "/settings" },
   { name: "Profile", href: "/settings/profile" },
+  { name: "FindRelayOrRelay", href: "/findrelayorlocker" },
 ]
 
 export default function Header() {
