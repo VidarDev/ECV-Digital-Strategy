@@ -14,13 +14,14 @@ const BentoLayout = () => {
       {/* Conteneur principal en dessous */}
       <div className="flex flex-1">
         {/* Résultats de recherche à gauche */}
-        <div className="bg-white-500 w-1/4 flex items-center justify-center border ">
-          <SearchResults lockers={[]} />
-        </div>
+        {/* Si tu veux afficher les résultats à gauche, décommente le bloc suivant */}
+        {/* <div className="bg-white-500 w-1/4 flex items-center justify-center border "> */}
+        {/*   <SearchResults lockers={[]} /> */}
+        {/* </div> */}
 
         {/* Carte à droite */}
-        <div className="bg-white-500 w-3/4 flex items-center justify-center border overflow-hidden">
-          {/* Ajoutez ici le composant Mapbox */}
+        <div className="bg-white-500 flex-1 flex items-center justify-center border overflow-hidden">
+          {/* Carte Mapbox prend toute la largeur et la hauteur */}
           <div className="w-full h-full">
             <Map lockers={[{ id: 1, name: "Locker A", latitude: 48.8566, longitude: 2.3522 }]} />
           </div>

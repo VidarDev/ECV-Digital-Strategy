@@ -7,7 +7,8 @@ export const geojson = {
           "id": 1,
           "name": "Locker 1",
           "adresse": "123 Main Street, Douai",
-          "type": "locker"
+          "type": "locker",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
@@ -20,7 +21,8 @@ export const geojson = {
           "id": 2,
           "name": "Relais 1",
           "adresse": "456 Elm Street, Douai",
-          "type": "relais"
+          "type": "relais",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
@@ -33,7 +35,8 @@ export const geojson = {
           "id": 3,
           "name": "Locker 2",
           "adresse": "789 Pine Avenue, Douai",
-          "type": "locker"
+          "type": "locker",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
@@ -46,7 +49,8 @@ export const geojson = {
           "id": 4,
           "name": "Relais 2",
           "adresse": "321 Oak Street, Douai",
-          "type": "relais"
+          "type": "relais",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
@@ -59,7 +63,8 @@ export const geojson = {
           "id": 5,
           "name": "Locker 3",
           "adresse": "654 Maple Drive, Douai",
-          "type": "locker"
+          "type": "locker",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
@@ -72,7 +77,8 @@ export const geojson = {
           "id": 6,
           "name": "Relais 3",
           "adresse": "987 Cedar Lane, Douai",
-          "type": "relais"
+          "type": "relais",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
@@ -85,7 +91,8 @@ export const geojson = {
           "id": 7,
           "name": "Locker 4",
           "adresse": "159 Birch Road, Douai",
-          "type": "locker"
+          "type": "locker",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
@@ -98,7 +105,8 @@ export const geojson = {
           "id": 8,
           "name": "Relais 4",
           "adresse": "753 Walnut Street, Douai",
-          "type": "relais"
+          "type": "relais",
+          "image": "/images/point_relais_paris.jpg"  // URL de l'image
         },
         "geometry": {
           "type": "Point",
