@@ -79,6 +79,13 @@ export default function Header() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+        <Link href={"/findrelayorlocker"} legacyBehavior passHref>
+          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            FindRelayOrLocker
+          </NavigationMenuLink>
+        </Link>
+      </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
     <div className="flex items-center gap-x-4">
