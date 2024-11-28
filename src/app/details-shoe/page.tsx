@@ -8,8 +8,8 @@ const shoeDetails = {
   name: "Chaussure de Course Eco-Friendly",
   description:
     "Une chaussure révolutionnaire conçue pour allier performance et respect de l’environnement. Fabriquée à partir de matériaux recyclés, elle offre un confort exceptionnel pour les coureurs de tous niveaux.",
-  image: "/assets/images/shoe1.webp", // Une seule image principale
-  rentalPrice: 25, // Prix de location par semaine
+  image: "/assets/images/shoe1.webp",
+  rentalPrice: 25,
   sizes: ["38", "40", "42", "44"],
   material: "Matériaux recyclés à 100%",
   durability: "Testée pour une durabilité de 500 km",
@@ -70,7 +70,6 @@ const ShoeDetailPage: React.FC = () => {
     }
   };
 
-  // Avis filtrés
   const reviews = [
     {
       name: "Samantha D.",
@@ -100,9 +99,7 @@ const ShoeDetailPage: React.FC = () => {
 
   return (
     <main className="py-8 px-4 md:px-16 bg-gray-50">
-      {/* Section Titre et Image */}
       <section className="grid md:grid-cols-2 gap-8">
-        {/* Image principale de l'article */}
         <div className="flex justify-center items-center">
           <Image
             src={shoeDetails.image}
@@ -112,16 +109,12 @@ const ShoeDetailPage: React.FC = () => {
             className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
         </div>
-
-        {/* Détails de l'article */}
         <div className="flex flex-col justify-center space-y-6">
           <h1 className="text-3xl font-bold text-gray-900">{shoeDetails.name}</h1>
           <p className="text-gray-700 text-lg">{shoeDetails.description}</p>
           <p className="text-lg font-semibold text-gray-800">
             Prix de location : <span className="text-green-600">{shoeDetails.rentalPrice}€ / semaine</span>
           </p>
-
-          {/* Tailles disponibles */}
           <div>
             <h3 className="font-semibold text-lg text-gray-800">Tailles disponibles :</h3>
             <ul className="flex space-x-2 mt-2">
@@ -135,15 +128,11 @@ const ShoeDetailPage: React.FC = () => {
               ))}
             </ul>
           </div>
-
-          {/* Bouton Louer */}
           <Button className="bg-green-600 hover:bg-green-700 text-white mt-4 py-3 rounded-lg shadow-md transition duration-300">
             Louer cette paire
           </Button>
         </div>
       </section>
-
-      {/* Sous-menu */}
       <div className="mt-8 border-b-2 flex space-x-6 text-lg font-semibold text-gray-800">
         <button
           onClick={() => setActiveTab("details")}
@@ -164,8 +153,6 @@ const ShoeDetailPage: React.FC = () => {
           FAQ
         </button>
       </div>
-
-      {/* Contenu selon l'onglet actif */}
       {activeTab === "details" && (
         <section className="mt-8">
           <h3 className="text-2xl font-semibold text-gray-900">Description détaillée</h3>
@@ -180,27 +167,20 @@ const ShoeDetailPage: React.FC = () => {
             <h3 className="font-semibold text-lg text-gray-800">Durabilité :</h3>
             <p className="text-gray-700">{shoeDetails.durability}</p>
           </div>
-
-          {/* Engagement Environnemental */}
           <div>
             <h3 className="font-semibold text-lg text-gray-800">Engagement environnemental :</h3>
             <p className="text-gray-700">{shoeDetails.sustainability}</p>
           </div>
-
-          {/* Politique de retour */}
           <div>
             <h3 className="font-semibold text-lg text-gray-800">Politique de retour :</h3>
             <p className="text-gray-700">{shoeDetails.returnPolicy}</p>
           </div>
-
-          {/* Instructions d'entretien */}
           <div>
             <h3 className="font-semibold text-lg text-gray-800">Instructions d’entretien :</h3>
             <p className="text-gray-700">{shoeDetails.careInstructions}</p>
           </div>
         </section>
       )}
-
       {activeTab === "reviews" && (
         <section className="mt-8">
           <h3 className="text-2xl font-semibold text-gray-900">Avis des clients</h3>
@@ -221,7 +201,6 @@ const ShoeDetailPage: React.FC = () => {
           </div>
         </section>
       )}
-
       {activeTab === "faq" && (
         <section className="mt-8">
           <h3 className="text-2xl font-semibold text-gray-900">Questions fréquentes</h3>
@@ -237,8 +216,6 @@ const ShoeDetailPage: React.FC = () => {
           </div>
         </section>
       )}
-
-      {/* Suggestions de produits similaires */}
       <section className="mt-16">
         <h3 className="text-2xl font-semibold text-gray-900 mb-4">Chaussures similaires</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -258,8 +235,6 @@ const ShoeDetailPage: React.FC = () => {
           ))}
         </div>
       </section>
-
-      {/* Newsletter */}
       <section className="bg-gray-800 text-white py-12 mt-16">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-4">Inscrivez-vous à notre newsletter</h2>
