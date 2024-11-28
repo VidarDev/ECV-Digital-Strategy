@@ -3,6 +3,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/utils/cn"
+
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "Settings", href: "/settings" },
+  { name: "Profile", href: "/settings/profile" },
+  { name: "FindRelayOrLocker", href: "/findrelayorlocker" },
+]
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import React from "react"
 import { Input } from "./ui/input"
