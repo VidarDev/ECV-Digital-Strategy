@@ -44,7 +44,7 @@ const carouselImages: string[] = [
 const HomePage: React.FC = () => {
   return (
     <main className="bg-white">
-      <section className="relative h-screen bg-cover bg-center flex flex-col items-center justify-center text-white">
+      <section className="relative h-screen bg-cover bg-center flex flex-col items-center justify-center text-white text-center">
         <Image
           src="/assets/images/running.jpg"
           alt="Coureur en train de courir"
