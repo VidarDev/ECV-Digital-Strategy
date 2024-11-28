@@ -11,10 +11,12 @@ import { useState } from "react"
 
 interface QuestionDialogProps {
   trigger: React.ReactNode
+  initialOpen?: boolean
+  isRegistration?: boolean
 }
 
-export default function QuestionDialog({ trigger }: QuestionDialogProps) {
-  const [open, setOpen] = useState(false)
+export default function QuestionDialog({ trigger, initialOpen = false, isRegistration = false }: QuestionDialogProps) {
+  const [open, setOpen] = useState(initialOpen)
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -23,7 +25,7 @@ export default function QuestionDialog({ trigger }: QuestionDialogProps) {
       </DialogTrigger>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader></DialogHeader>
-        <QuestionForm onComplete={() => setOpen(false)} />
+        <QuestionForm onComplete={() => setOpen(false)} isRegistration={isRegistration} />
       </DialogContent>
     </Dialog>
   )
