@@ -103,11 +103,14 @@ const ShoeDetailPage: React.FC = () => {
             <div className="space-y-4">          
               <div className="space-y-2">
                 <p className="text-lg font-semibold">
+                  Stock disponible: {shoeDetails.stockAvailable} unités
+                </p>
+                {/* <p className="text-lg font-semibold">
                   Prix unitaire: {shoeDetails.wholesalePrice}€ / semaine
                 </p>
                 <p className="text-sm text-muted-foreground">
                   Stock disponible: {shoeDetails.stockAvailable} unités
-                </p>
+                </p> */}
               </div>
               </div>
           </CardContent>
@@ -272,10 +275,10 @@ const ShoeDetailPage: React.FC = () => {
                                             </p>
                                         </div>
                                         <div className="flex items-center justify-between w-full">
-                                            <span className="font-semibold">{shoe.rentalPrice}€ / semaine</span>
-                                            <Link href='/details-shoe'>
-                                            <Button variant="outline" size="sm">
-                                                Voir plus
+                                            {/* <span className="font-semibold">{shoe.rentalPrice}€ / semaine</span> */}
+                                            <Link href='/details-shoe'  className='w-full'>
+                                            <Button className='w-full' size="sm">
+                                               Louer
                                             </Button>
                                             </Link>
                                         </div>

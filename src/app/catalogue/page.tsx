@@ -211,7 +211,7 @@ export default function CataloguePage() {
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {filteredShoes.length ? (
                             filteredShoes.map((shoe) => (
-                                <Card key={shoe.id} className="overflow-hidden">
+                                <Card key={shoe.id} className="overflow-hidden max-h-[400px]">
                                     <CardContent className="p-0">
                                         <div className="aspect-square relative">
                                             <Image
@@ -230,10 +230,10 @@ export default function CataloguePage() {
                                             </p>
                                         </div>
                                         <div className="flex items-center justify-between w-full">
-                                            <span className="font-semibold">{shoe.price}€ / semaine</span>
-                                            <Link href='/details-shoe'>
-                                            <Button variant="outline" size="sm">
-                                                Voir plus
+                                            {/* <span className="font-semibold">{shoe.price}€ / semaine</span> */}
+                                            <Link href='/details-shoe'  className='w-full'>
+                                            <Button className='w-full' size="sm">
+                                                Louer
                                             </Button>
                                             </Link>
                                         </div>

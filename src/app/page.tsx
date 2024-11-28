@@ -56,8 +56,8 @@ const HomePage: React.FC = () => {
         <h1 className="text-5xl font-bold z-10 mb-4">Réduisez votre empreinte carbone en courant avec style</h1>
         <p className="text-lg z-10 mb-8">La première plateforme de location de chaussures écoresponsable.</p>
         <div className="space-x-4 z-10">
-          <Button className="bg-green-600 hover:bg-green-700">Découvrir le concept</Button>
-          <Button variant="outline" className="text-black border-white">
+          <Button>Découvrir le concept</Button>
+          <Button variant="outline" className="bg-white text-black">
             Commencer dès maintenant
           </Button>
         </div>
@@ -179,10 +179,10 @@ const HomePage: React.FC = () => {
                                             </p>
                                         </div>
                                         <div className="flex items-center justify-between w-full">
-                                            <span className="font-semibold">{shoes[index].price}€ / semaine</span>
-                                            <Link href='/details-shoe'>
-                                            <Button variant="outline" size="sm">
-                                                Voir plus
+                                            {/* <span className="font-semibold">{shoes[index].price}€ / semaine</span> */}
+                                            <Link href='/details-shoe'  className='w-full' >
+                                            <Button className='w-full' size="sm">
+                                               Louer
                                             </Button>
                                             </Link>
                                         </div>

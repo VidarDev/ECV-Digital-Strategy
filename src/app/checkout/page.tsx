@@ -25,7 +25,6 @@ export default function CartPage() {
                   <h3 className="font-semibold">Nike Air Max</h3>
                   <p className="text-sm text-muted-foreground">Taille: 42</p>
                   <p className="text-sm text-muted-foreground">Quantité: 1</p>
-                  <p className="font-semibold mt-2">89.99 €</p>
                 </div>
               </div>
             </CardContent>
@@ -34,7 +33,7 @@ export default function CartPage() {
 
         <div className="flex justify-between py-4 border-t">
           <span className="font-semibold">Total</span>
-          <span className="font-semibold">89.99 €</span>
+          <span className="font-semibold">Compris dans votre abonnement</span>
         </div>
       </div>
 

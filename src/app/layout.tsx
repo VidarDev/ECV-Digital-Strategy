@@ -35,7 +35,7 @@ export default function RootLayout({
       >
         <Cursor />
         <Header />
-        <main className="pt-24">
+        <main className="pt-24 min-h-[calc(100vh-6rem)]">
           {children}
         </main>
         <Footer/>
