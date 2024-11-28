@@ -71,7 +71,7 @@ const HomePage: React.FC = () => {
         >
           <CardHeader className="mb-4 flex justify-center items-center">
             <Image src={step.icon} alt={step.title} width={24} height={24} className="w-16 h-16 mb-4" />
-            <h3 className="text-xl font-semibold">{step.title}e</h3>
+            <h3 className="text-xl font-semibold">{step.title}</h3>
           </CardHeader>
           <CardContent>
           {step.description}
