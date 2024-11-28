@@ -60,15 +60,15 @@ export default function PaymentPage() {
           <div className="border-t pt-4">
             <div className="flex justify-between mb-2">
               <span className="text-muted-foreground">Sous-total</span>
-              <span>89.99 €</span>
+              <span>Gratuit</span>
             </div>
             <div className="flex justify-between mb-2">
               <span className="text-muted-foreground">Livraison</span>
-              <span>Gratuit</span>
+              <span>10.99 €</span>
             </div>
             <div className="flex justify-between font-semibold">
               <span>Total</span>
-              <span>89.99 €</span>
+              <span>10.99 €</span>
             </div>
           </div>
         </div>
