@@ -17,7 +17,7 @@ import { Separator } from "@/components/ui/separator"
 import { Checkbox } from '@/components/ui/checkbox'
 import { shoes } from '@/data/products'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from "next/link"
 
 export default function CataloguePage() {
     const [priceRange, setPriceRange] = useState([0, 100])
