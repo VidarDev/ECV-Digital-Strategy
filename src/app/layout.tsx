@@ -36,12 +36,7 @@ export default function RootLayout({
         <main className="pt-24">
           {children}
         </main>
-        <Chatbot 
-        customResponses={{
-    "bonjour": "Bonjour ! Comment puis-je vous aider ?",
-    "merci": "Je vous en prie !",
-    // Ajoutez d'autres réponses personnalisées ici
-  }} />
+        <Chatbot />
       </body>
     </html>
   );

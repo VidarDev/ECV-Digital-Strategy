@@ -7,7 +7,7 @@ export default function CheckoutLayout({
 }) {
   return (
     <div className="container py-10 pb-40 mx-auto">
-      <div className="mx-auto max-w-3xl w-full">
+      <div className="mx-auto w-full">
         <Card className="p-6 w-full">
           {children}
         </Card>
