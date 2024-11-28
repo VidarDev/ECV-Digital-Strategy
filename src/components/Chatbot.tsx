@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { MessageCircle } from "lucide-react"
+import { Package } from "lucide-react"
 
 interface Message {
     id: number;
@@ -18,16 +18,17 @@ interface Message {
     isUser: boolean;
 }
 
-interface ChatbotProps {
-    customResponses: { [key: string]: string };
-}
-
 const predefinedResponses = [
-    "Comment puis-je vous aider ?",
-    "En savoir plus sur nos services"
+    "Je n'ai pas reçu ma commande",
+    "Ma paire est endommagée",
 ];
 
-const Chatbot: React.FC<ChatbotProps> = ({ customResponses }) => {
+const customResponses: { [key: string]: string } = {
+    "Je n'ai pas reçu ma commande": "Nous allons vérifier de notre coté",
+    "Ma paire est endommagée": "Voici le numérico de notre service client : 01 23 45 67 89",
+};
+
+const Chatbot: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
         { id: 1, text: "Bonjour ! Comment puis-je vous aider ?", isUser: false }
@@ -50,7 +51,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ customResponses }) => {
             isUser: true
         };
         
-        const botResponse = customResponses[text.toLowerCase()] || "Je ne comprends pas votre demande. Pouvez-vous reformuler ?";
+        const botResponse = customResponses[text] || "Je ne comprends pas votre demande. Pouvez-vous reformuler ?";
         
         const newBotMessage: Message = {
             id: messages.length + 2,
@@ -76,7 +77,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ customResponses }) => {
                 className="fixed bottom-4 right-4 rounded-full w-12 h-12 p-0"
                 size="icon"
             >
-                <MessageCircle className="h-6 w-6" />
+                <Package className="h-6 w-6" />
             </Button>
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
