@@ -1,17 +1,10 @@
 'use client'
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
-
-import { cn } from "@/lib/utils";
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
+import { shoes } from "@/data/products";
 
 interface Step {
   id: number;
@@ -50,156 +43,158 @@ const carouselImages: string[] = [
 
 const HomePage: React.FC = () => {
   return (
-      <main>
-          {/* Hero Section */}
-          <section
-              className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-white text-center"
-              style={{backgroundImage: "url('/assets/images/running.jpg')"}}
-          >
-              <h1 className="text-5xl font-bold mb-4">Réduisez votre empreinte carbone en courant avec style</h1>
-              <p className="text-lg mb-8">La première plateforme de location de chaussures écoresponsable.</p>
-              <div className="space-x-4">
-                  <Button className="bg-green-600 hover:bg-green-700">Découvrir le concept</Button>
-                  <Button variant="outline" className="text-black border-white">
-                      Commencer dès maintenant
-                  </Button>
-              </div>
-          </section>
+    <main className="bg-white">
+      <section className="relative h-screen bg-cover bg-center flex flex-col items-center justify-center text-white">
+        <Image
+          src="/assets/images/running.jpg"
+          alt="Coureur en train de courir"
+          layout="fill"
+          objectFit="cover"
+          className="absolute w-full h-full"
+        />
+        <h1 className="text-5xl font-bold z-10 mb-4">Réduisez votre empreinte carbone en courant avec style</h1>
+        <p className="text-lg z-10 mb-8">La première plateforme de location de chaussures écoresponsable.</p>
+        <div className="space-x-4 z-10">
+          <Button className="bg-green-600 hover:bg-green-700">Découvrir le concept</Button>
+          <Button variant="outline" className="text-black border-white">
+            Commencer dès maintenant
+          </Button>
+        </div>
+      </section>
 
-          {/* Comment ça marche Section */}
-          <section className="py-16 px-5 bg-gray-50">
-              <h2 className="text-3xl font-bold text-center mb-10">Comment ça marche ?</h2>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-                  {steps.map((step) => (
-                      <Card key={step.id} className="p-4 flex flex-col items-center justify-center text-center">
-                          <CardHeader className="flex flex-col items-center justify-center">
-                              <img src={step.icon} alt={step.title} className="w-16 h-16 mb-4"/>
-                              <h3 className="text-xl font-semibold">{step.title}</h3>
-                          </CardHeader>
-                          <CardContent className="text-center">{step.description}</CardContent>
-                      </Card>
+      <section className="py-16 px-5 bg-gray-50">
+        <h2 className="text-3xl font-bold text-center mb-10">Comment ça marche ?</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+        {steps.map((step) => (
+          <Card key={step.id} 
+          className="p-4 flex flex-col items-center justify-center text-center shadow-md"
+        >
+          <CardHeader className="mb-4 flex justify-center items-center">
+            <Image src={step.icon} alt={step.title} width={24} height={24} className="w-16 h-16 mb-4" />
+            <h3 className="text-xl font-semibold">{step.title}e</h3>
+          </CardHeader>
+          <CardContent>
+          {step.description}
+          </CardContent>
+        </Card>
+                    
                   ))}
-              </div>
-          </section>
+        </div>
+      </section>
 
-
-          {/* Pourquoi nous choisir Section */}
-          <section className="py-16 px-5 bg-white">
-              <h2 className="text-3xl font-bold text-center mb-10">Pourquoi nous choisir ?</h2>
-              <div className="grid gap-6 md:grid-cols-3">
-                  {infoCards.map((card) => (
-                      <Card key={card.id} className="p-4 flex flex-col items-center text-center">
-                          <CardHeader className="flex flex-col items-center justify-center">
-                              <img src={card.icon} alt={card.title} className="w-16 h-16 mb-4"/>
+      <section className="py-16 px-5 bg-white">
+        <h2 className="text-3xl font-bold text-center mb-10">Pourquoi nous choisir ?</h2>
+        <div className="grid gap-6 md:grid-cols-3">
+        {infoCards.map((card) => (
+                      <Card key={card.id} className="p-4 flex flex-col items-center justify-center text-center shadow-md">
+                          <CardHeader className="mb-4 flex justify-center items-center">
+                              <Image src={card.icon} alt={card.title} width={24} height={24} className="w-16 h-16 mb-4"/>
                               <h3 className="text-xl font-semibold">{card.title}</h3>
                           </CardHeader>
                           <CardContent>{card.description}</CardContent>
                       </Card>
                   ))}
-              </div>
+        </div>
+      </section>
 
-          </section>
+      <section className="py-16 px-5 bg-white">
+        <h2 className="text-3xl font-bold text-center mb-10">Choisissez votre abonnement</h2>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+          <Card
+            className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm"
+          >
+            <CardHeader className="mb-4">
+              <h3 className="text-2xl font-bold text-green-600">Novice</h3>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li>✔ 2 paires par mois</li>
+                <li>✔ 10% de réduction sur les paires</li>
+                <li>✔ Assistance standard</li>
+              </ul>
+              <Button className="mt-6 bg-green-600 hover:bg-green-700">Choisir</Button>
+            </CardContent>
+          </Card>
 
-          {/* Abonnements Section */}
-          <section className="py-16 px-5 bg-white">
-              <h2 className="text-3xl font-bold text-center mb-10">Choisissez votre abonnement</h2>
-              <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-                  {/* Carte Novice */}
-                  <Card className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm">
-                      <CardHeader className="mb-4">
-                          <h3 className="text-2xl font-bold text-green-600">Novice</h3>
-                      </CardHeader>
-                      <CardContent>
-                          <ul className="space-y-2">
-                              <li>✔ 2 paires par mois</li>
-                              <li>✔ 10% de réduction sur les paires</li>
-                              <li>✔ Assistance standard</li>
-                          </ul>
-                          <Button className="mt-6 bg-green-600 hover:bg-green-700">
-                              Choisir
-                          </Button>
-                      </CardContent>
-                  </Card>
+          <Card
+            className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm"
+          >
+            <CardHeader className="mb-4">
+              <h3 className="text-2xl font-bold text-blue-600">Intermédiaire</h3>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li>✔ 5 paires par mois</li>
+                <li>✔ 20% de réduction sur les paires</li>
+                <li>✔ Accès prioritaire aux nouveautés</li>
+              </ul>
+              <Button className="mt-6 bg-blue-600 hover:bg-blue-700">Choisir</Button>
+            </CardContent>
+          </Card>
 
-                  {/* Carte Intermédiaire */}
-                  <Card className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm">
-                      <CardHeader className="mb-4">
-                          <h3 className="text-2xl font-bold text-blue-600">Intermédiaire</h3>
-                      </CardHeader>
-                      <CardContent>
-                          <ul className="space-y-2">
-                              <li>✔ 5 paires par mois</li>
-                              <li>✔ 20% de réduction sur les paires</li>
-                              <li>✔ Accès prioritaire aux nouveautés</li>
-                          </ul>
-                          <Button className="mt-6 bg-blue-600 hover:bg-blue-700">
-                              Choisir
-                          </Button>
-                      </CardContent>
-                  </Card>
+          <Card
+            className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm"
+          >
+            <CardHeader className="mb-4">
+              <h3 className="text-2xl font-bold text-purple-600">Pro</h3>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                <li>✔ Paires illimitées</li>
+                <li>✔ 30% de réduction sur les paires</li>
+                <li>✔ Personnalisation avancée</li>
+                <li>✔ Assistance premium 24/7</li>
+              </ul>
+              <Button className="mt-6 bg-purple-600 hover:bg-purple-700">Choisir</Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
-                  {/* Carte Pro */}
-                  <Card className="p-6 flex flex-col items-center text-center shadow-md w-full max-w-sm">
-                      <CardHeader className="mb-4">
-                          <h3 className="text-2xl font-bold text-purple-600">Pro</h3>
-                      </CardHeader>
-                      <CardContent>
-                          <ul className="space-y-2">
-                              <li>✔ Paires illimitées</li>
-                              <li>✔ 30% de réduction sur les paires</li>
-                              <li>✔ Personnalisation avancée</li>
-                              <li>✔ Assistance premium 24/7</li>
-                          </ul>
-                          <Button className="mt-6 bg-purple-600 hover:bg-purple-700">
-                              Choisir
-                          </Button>
-                      </CardContent>
-                  </Card>
-              </div>
-          </section>
+      <section className="py-16 bg-gray-50 overflow-hidden">
+        <h2 className="text-3xl font-bold text-center mb-10">Découvrez nos modèles</h2>
+        <Carousel>
+          <CarouselContent>
+            {carouselImages.map((src, index) => (
+              <CarouselItem key={index} className="flex justify-center items-center basis-1/3">
+                 <Card className="overflow-hidden w-full sm:w-60 md:w-72 lg:w-80 h-96">
+                                    <CardContent className="p-0">
+                                        <div className="aspect-square relative">
+                                        <Image
+                    src={src}
+                    alt={`Chaussure ${index + 1}`}
+                    className="object-cover w-full h-72"
+                    width={288}
+                    height={288}
+                    layout="intrinsic"
+                  />
+                                        </div>
+                                    </CardContent>
+                                    <CardFooter className="p-4 flex-col items-start gap-2">
+                                        <div>
+                                            <h3 className="font-semibold">{shoes[index].name}</h3>
+                                            <p className="text-sm text-muted-foreground">
+                                                {shoes[index].brand}
+                                            </p>
+                                        </div>
+                                        <div className="flex items-center justify-between w-full">
+                                            <span className="font-semibold">{shoes[index].price}€</span>
+                                            <Button variant="outline" size="sm">
+                                                Voir plus
+                                            </Button>
+                                        </div>
+                                    </CardFooter>
+                                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </section>
 
-
-          {/* Carousel Section */}
-          <section className="py-16 bg-gray-50 overflow-hidden">
-              <h2 className="text-3xl font-bold text-center mb-10">Découvrez nos modèles</h2>
-
-
-              <Carousel>
-                  <CarouselContent>
-                      {carouselImages.map((src, index) => (
-                          <CarouselItem key={index} className="flex justify-center items-center basis-1/3">
-                              <div
-                                  className="relative w-full sm:w-60 md:w-72 lg:w-80 h-96 bg-white shadow-lg rounded-lg overflow-hidden">
-                                  <Image
-                                      src={src}
-                                      alt={`Chaussure ${index + 1}`}
-                                      className="object-cover w-full h-72"
-                                      width={288}
-                                      height={288}
-                                      layout="intrinsic"
-                                  />
-                                  <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-                                      <button
-                                          className="bg-white text-black py-2 px-4 rounded-lg hover:bg-black hover:text-white border border-black transition duration-300"
-                                          onClick={() => alert(`Voir le produit ${index + 1}`)} // Remplacer par un lien réel
-                                      >
-                                          Voir le produit
-                                      </button>
-
-
-                                  </div>
-                              </div>
-                          </CarouselItem>
-                      ))}
-                  </CarouselContent>
-                  <CarouselPrevious/>
-                  <CarouselNext/>
-              </Carousel>
-          </section>
-
-          {/* Footer */}
-          <footer className="py-8 bg-gray-800 text-white text-center">
-              <p className="text-sm">© 2024 Location de Chaussures. Tous droits réservés.</p>
+      <footer className="py-8 bg-gray-800 text-white text-center">
+            <p className="text-sm">© 2024 Location de Chaussures. Tous droits réservés.</p>
           </footer>
       </main>
   );

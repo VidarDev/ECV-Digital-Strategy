@@ -9,15 +9,18 @@ import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence } from "motion/react"
+import { useRouter } from "next/navigation"
 
 interface QuestionFormProps {
   onComplete?: () => void
+  isRegistration?: boolean
 }
 
-export default function QuestionForm({ onComplete }: QuestionFormProps) {
+export default function QuestionForm({ onComplete, isRegistration = false }: QuestionFormProps) {
   const [currentStep, setCurrentStep] = useState(0)
   const { setAnswers, determineProfile } = useProfileStore()
   const [localAnswers, setLocalAnswers] = useState<Record<number, Answer>>({})
+  const router = useRouter()
 
   const currentQuestion = questions[currentStep]
 
@@ -34,6 +37,9 @@ export default function QuestionForm({ onComplete }: QuestionFormProps) {
       setAnswers(newAnswers)
       determineProfile()
       onComplete?.()
+      if (isRegistration) {
+        router.push('/')
+      }
     }
   }
 

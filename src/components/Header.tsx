@@ -6,25 +6,24 @@ import { cn } from "@/utils/cn"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import React from "react"
 import { Input } from "./ui/input"
+import { useAuthStore } from "@/store/useAuthStore"
+import { Heart, ShoppingCart } from "lucide-react"
 
 export default function Header() {
+  const { isLogged } = useAuthStore()
+
   return (
     <header className="fixed top-0 left-0 right-0 z-20 border-b border-border/40 bg-white">
-      <div className="w-full bg-gray-100 min-h-9 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <div className="flex gap-x-2">
-          <Image
-            src="/images/default.svg"
-            alt="Your Company"
-            className="h-8 w-auto"
-            width={24} height={24} />
-        <Image
-            src="/images/default.svg"
-            alt="Your Company"
-            className="h-8 w-auto"
-            width={24} height={24} />
-        </div>
+      <div className="w-full bg-gray-100 min-h-9 px-4 sm:px-6 lg:px-8 flex items-center justify-end">
         <div className="text-xs font-semibold leading-6 text-gray-900">
-          <Link href="/login">Sidentifier</Link>
+          {!isLogged ? (
+            <Link href="/auth">Connexion / Inscription</Link>
+          ) : (
+            <div className="flex gap-4">
+              <button onClick={() => useAuthStore.getState().logout()}>Déconnexion</button>
+              <Link href="/profile">Profil</Link>
+            </div>
+          )}
         </div>
       </div>
       <nav className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8" aria-label="Top">
@@ -34,7 +33,7 @@ export default function Header() {
               href="/"
               className="text-xl font-bold text-gray-900 hover:text-gray-700"
             >
-              Digital Strategy
+              Nikies
             </Link>
           </div>
           <NavigationMenu>
@@ -67,13 +66,6 @@ export default function Header() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/profile" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Profil
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
           <Link href="/catalogue" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Catalogue
@@ -82,22 +74,18 @@ export default function Header() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center gap-x-4">
       <Input
         type="search"
         placeholder="Search..."
         className="w-full max-w-sm rounded-full"
       />
-      <Image
-        src="/images/default.svg"
-        alt="Your Company"
-        className="h-8 w-auto"
-        width={24} height={24} />
-      <Image
-        src="/images/default.svg"
-        alt="Your Company"
-        className="h-8 w-auto"
-        width={24} height={24} />
+      <Link href="#">
+        <Heart className="h-6 w-6" />
+      </Link>
+      <Link href="/checkout">
+        <ShoppingCart className="h-6 w-6" />
+      </Link>
     </div>
         </div>
       </nav>
