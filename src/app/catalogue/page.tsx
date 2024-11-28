@@ -17,6 +17,7 @@ import { Separator } from "@/components/ui/separator"
 import { Checkbox } from '@/components/ui/checkbox'
 import { shoes } from '@/data/products'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function CataloguePage() {
     const [priceRange, setPriceRange] = useState([0, 100])
@@ -229,10 +230,12 @@ export default function CataloguePage() {
                                             </p>
                                         </div>
                                         <div className="flex items-center justify-between w-full">
-                                            <span className="font-semibold">{shoe.price}€</span>
+                                            <span className="font-semibold">{shoe.price}€ / semaine</span>
+                                            <Link href='/details-shoe'>
                                             <Button variant="outline" size="sm">
                                                 Voir plus
                                             </Button>
+                                            </Link>
                                         </div>
                                     </CardFooter>
                                 </Card>

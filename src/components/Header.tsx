@@ -4,12 +4,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/utils/cn"
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Settings", href: "/settings" },
-  { name: "Profile", href: "/settings/profile" },
-  { name: "FindRelayOrLocker", href: "/findrelayorlocker" },
-]
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import React from "react"
 import { Input } from "./ui/input"
@@ -63,11 +57,13 @@ export default function Header() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/settings" title="Chaussures">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem href="/details-shoe" title="Chaussures running">
+                Découvrez notre nouvelle chaussure running.
               </ListItem>
-              <ListItem href="/settings" title="Chaussures 2">
-                How to install dependencies and structure your app.
+              <ListItem href="/details-shoe" title="Chaussures trail">
+              Les chaussures trail sont parfaites pour les runners professionnels et les amateurs de marche.
+              </ListItem>
+              <ListItem href="/catalogue" title="Voir plus">
               </ListItem>
             </ul>
           </NavigationMenuContent>

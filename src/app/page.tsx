@@ -5,6 +5,7 @@ import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
 import { shoes } from "@/data/products";
+import Link from "next/link";
 
 interface Step {
   id: number;
@@ -156,18 +157,18 @@ const HomePage: React.FC = () => {
         <Carousel>
           <CarouselContent>
             {carouselImages.map((src, index) => (
-              <CarouselItem key={index} className="flex justify-center items-center basis-1/3">
-                 <Card className="overflow-hidden w-full sm:w-60 md:w-72 lg:w-80 h-96">
+              <CarouselItem key={index} className="flex justify-center items-center basis-1/4">
+                 <Card className="overflow-hidden w-full">
                                     <CardContent className="p-0">
                                         <div className="aspect-square relative">
                                         <Image
-                    src={src}
-                    alt={`Chaussure ${index + 1}`}
-                    className="object-cover w-full h-72"
-                    width={288}
-                    height={288}
-                    layout="intrinsic"
-                  />
+                                            src={src}
+                                            alt={`Chaussure ${index + 1}`}
+                                            className="object-cover w-full h-72"
+                                            width={288}
+                                            height={288}
+                                            layout="intrinsic"
+                                          />
                                         </div>
                                     </CardContent>
                                     <CardFooter className="p-4 flex-col items-start gap-2">
@@ -178,10 +179,12 @@ const HomePage: React.FC = () => {
                                             </p>
                                         </div>
                                         <div className="flex items-center justify-between w-full">
-                                            <span className="font-semibold">{shoes[index].price}€</span>
+                                            <span className="font-semibold">{shoes[index].price}€ / semaine</span>
+                                            <Link href='/details-shoe'>
                                             <Button variant="outline" size="sm">
                                                 Voir plus
                                             </Button>
+                                            </Link>
                                         </div>
                                     </CardFooter>
                                 </Card>
@@ -192,10 +195,6 @@ const HomePage: React.FC = () => {
           <CarouselNext />
         </Carousel>
       </section>
-
-      <footer className="py-8 bg-gray-800 text-white text-center">
-            <p className="text-sm">© 2024 Location de Chaussures. Tous droits réservés.</p>
-          </footer>
       </main>
   );
 };
